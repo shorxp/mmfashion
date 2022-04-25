@@ -32,7 +32,7 @@ def parse_args():
         help='whether to evaluate the checkpoint during training',
         default=True)
     parser.add_argument(
-        '--use_cuda', type=bool, default=True, help='use gpu or not')
+        '--use_cuda', type=bool, default=False, help='use gpu or not')
     args = parser.parse_args()
     return args
 
