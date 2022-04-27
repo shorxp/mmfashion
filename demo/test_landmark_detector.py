@@ -51,7 +51,11 @@ def main():
     # build model and load checkpoint
     model = build_landmark_detector(cfg.model)
     print('model built')
-    load_checkpoint(model, args.checkpoint, map_location='cpu')
+    
+    if args.use_cuda:
+        load_checkpoint(model, args.checkpoint)
+    else:
+        load_checkpoint(model, args.checkpoint, map_location='cpu')
     print('load checkpoint from: {}'.format(args.checkpoint))
 
     if args.use_cuda:
